@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Router from './pages/Router';
 
 function App() {
+  const [page, navigate] = useState("home");
+
+  const navigateHome = () => navigate("home");
+  const navigateKuvat = () => navigate("kuvat");
+  const navigateReseptit = () => navigate("reseptit");
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={navigateHome}>Home</button>
+        <button onClick={navigateKuvat}>Kuvat</button>
+        <button onClick={navigateReseptit}>Reseptit</button>
       </header>
+      <main>
+        <Router page={page} />
+      </main>
     </div>
   );
 }
