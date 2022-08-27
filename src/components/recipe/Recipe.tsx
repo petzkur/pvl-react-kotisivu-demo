@@ -1,4 +1,4 @@
-import "./resepti.css";
+import "./recipe.css";
 
 export type RecipeParams = {
     name: string;
